@@ -18,6 +18,14 @@ body {
     margin: auto;
     
 }
+
+.front{
+  background: url('https://i.pinimg.com/originals/a7/d4/09/a7d409d7bae019934e8511a85f8e4ff8.gif');
+   background-repeat: no-repeat;
+   background-size: cover;
+  font-size: large;
+
+}
   </style>
   <head>
     <meta charset="utf-8">
@@ -230,23 +238,137 @@ display: block;
       </li>
     </ul>
   </nav>
-    <h1>Latest Posts</h1>
+    <h1>Guia em Português</h1>
 
-<ul>
-  
-    <li>
-      <h2><a href="/2020/07/05/banada.html">Banada</a></h2>
-      <p>A banana is an edible fruit – botanically a berry – produced by several kinds
-of large herbaceous flowering plants in the genus Musa.</p>
 
-    </li>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Khula:700);
+body {
+  background: #111;
+}
+.hidden {
+  opacity:0;
+}
+.console-container {
+ 
+  font-family:Khula;
+  font-size:4em;
+  text-align:center;
+  height:200px;
+  width:600px;
+  display:block;
+  position:absolute;
+  color:white;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  margin:auto;
+}
+.console-underscore {
+   display:inline-block;
+  position:relative;
+  top:-0.14em;
+  left:10px;
+  align-self: stretch;
+}
+</style>
+<div class='console-container'><span id='text'></span><div class='console-underscore' id='console'>&#95;</div></div>
+<ul class="front">
   
-    <li>
-      <h2><a href="/2018/08/21/apples.html">Apples</a></h2>
-      <p>An apple is a sweet, edible fruit produced by an apple tree.</p>
+  <li>
 
-    </li>
-  
+    <h2><b style="color: yellow; font-size: larger;" href="">BÁSICO</b></h2>
+    <h3><a style="color: yellow;" href="https://odysee.com/@leog:b/Guia-Skatehive-discord-PT:2">Como usar o Server da Skatehive </a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@leog:b/Guia-Skatehive-discord-PT:2">O que é Discord </a></h3>
+  </li>
+  <li>
+    <h2><b style="color: yellow; font-size: larger;" href="">GUIA ODYSEE</b></h2>
+    <h3><a style="color: yellow;" href="https://odysee.com/$/invite/@odyseebr:1">Convite do Odysee</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@odyseebr:1/upload:6">Como fazer um post na odysee</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/$/invite/@odyseebr:1">Como funciona o Boost</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@odyseebr:1/troca:0">Como trocar LBC</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@odyseebr:1/server:1">Guia do server da Odysee</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@odyseebr:1/livestream:b">Como fazer uma live na Odysee</a></h3>
+
+  </li>
+  <li>
+      
+    <h3><a style="color: yellow;" href="">Sobre a skatehive</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@leog:b/Guia-Skatehive-discord-PT:2">Como usar o Server da Skatehive </a></h3>
+
+  </li>
+  <li>
+      
+    <h3><a style="color: yellow;" href="">Sobre a skatehive</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@leog:b/Guia-Skatehive-discord-PT:2">Como usar o Server da Skatehive </a></h3>
+
+  </li>
+  <li>
+      
+    <h3><a style="color: yellow;" href="">Sobre a skatehive</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@leog:b/Guia-Skatehive-discord-PT:2">Como usar o Server da Skatehive </a></h3>
+
+  </li>
+  <li>
+      
+    <h3><a style="color: yellow;" href="">Sobre a skatehive</a></h3>
+    <h3><a style="color: yellow;" href="https://odysee.com/@leog:b/Guia-Skatehive-discord-PT:2">Como usar o Server da Skatehive </a></h3>
+
+  </li>
 </ul>
+<script>
+  // function([string1, string2],target id,[color1,color2])    
+ consoleText(['Presta Atenção', 'Não é difícil', 'Só é novo'], 'text',['tomato','rebeccapurple','lightblue']);
+
+function consoleText(words, id, colors) {
+  if (colors === undefined) colors = ['#fff'];
+  var visible = true;
+  var con = document.getElementById('console');
+  var letterCount = 1;
+  var x = 1;
+  var waiting = false;
+  var target = document.getElementById(id)
+  target.setAttribute('style', 'color:' + colors[0])
+  window.setInterval(function() {
+
+    if (letterCount === 0 && waiting === false) {
+      waiting = true;
+      target.innerHTML = words[0].substring(0, letterCount)
+      window.setTimeout(function() {
+        var usedColor = colors.shift();
+        colors.push(usedColor);
+        var usedWord = words.shift();
+        words.push(usedWord);
+        x = 1;
+        target.setAttribute('style', 'color:' + colors[0])
+        letterCount += x;
+        waiting = false;
+      }, 1000)
+    } else if (letterCount === words[0].length + 1 && waiting === false) {
+      waiting = true;
+      window.setTimeout(function() {
+        x = -1;
+        letterCount += x;
+        waiting = false;
+      }, 1000)
+    } else if (waiting === false) {
+      target.innerHTML = words[0].substring(0, letterCount)
+      letterCount += x;
+    }
+  }, 120)
+  window.setInterval(function() {
+    if (visible === true) {
+      con.className = 'console-underscore hidden'
+      visible = false;
+
+    } else {
+      con.className = 'console-underscore'
+
+      visible = true;
+    }
+  }, 400)
+}
+</script>
   </body>
 </html>
